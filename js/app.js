@@ -70,3 +70,12 @@ menuList.forEach((menu,index)=>{
         init(index);
     });
 }); 
+
+var swiper = new Swiper(".main-slider", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    loop:true,
+    autoplay:true
+});

@@ -323,3 +323,24 @@ footer .inner {
  /* max-width: 30px; */
  /* height: auto; */
 }
+
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.788);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.swiper .swiper-button-prev {
+    background-image: url(../img/left.png);
+}
+.swiper .swiper-button-next {
+    background-image: url(../img/right.png);
+}
+.swiper .swiper-button-prev svg,
+.swiper .swiper-button-next svg{
+    display: none;
+}
