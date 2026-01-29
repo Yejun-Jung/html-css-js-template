@@ -79,3 +79,33 @@ var swiper = new Swiper(".main-slider", {
     loop:true,
     autoplay:true
 });
+
+const sec3Bg = document.querySelectorAll('.sec-3 .bg-wrap > div');
+const colors = ['#EBD55A', '#E6A23C', '#E0F2F1'];
+const titWrap = document.querySelector('.sec-3 .tit-wrap');
+const numList = document.querySelectorAll('.num')
+
+var swiperSec3 = new Swiper(".sec-3-slider", {
+    loop: true,
+    navigation: {
+        nextEl: ".sec-3 .swiper-button-next",
+        prevEl: ".sec-3 .swiper-button-prev",
+    },
+    on: {
+        init: function() {
+            sec3Bg[0].classList.add('active');
+            titWrap.style.backgroundColor = colors[0];
+            numList.forEach((nums) => {
+                nums.style.backgroundColor = colors[0];
+            })
+        },
+        slideChange: function() {
+            sec3Bg.forEach(bg => bg.classList.remove('active'));
+            sec3Bg[this.realIndex].classList.add('active');
+            titWrap.style.backgroundColor = colors[this.realIndex];
+            numList.forEach((nums) => {
+                nums.style.backgroundColor = colors[this.realIndex];
+            })
+        }
+    }
+});
