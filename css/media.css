@@ -1,4 +1,4 @@
-@media screen and (max-width: 1640px) {
+@media screen and (max-width:1640px) {
  header .inner {
   padding: 20px;
  }
@@ -7,33 +7,34 @@
  }
 }
 @media screen and (max-width: 1440px) {
- .mob-nav-btn {
-  display: block;
-  width: 30px;
-  height: 20px;
-  /* background-color: red; */
-  position: relative;
- }
- .mob-nav-btn span{
+  .mob-nav-btn {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+  }
+
+  .mob-nav-btn span {
     display: block;
     width: 100%;
     height: 2px;
     background-color: #fff;
     position: absolute;
     transition: all .3s;
+  }
 
- }
- .mob-nav-btn span:nth-child(1){
-    top:0
- }
- .mob-nav-btn span:nth-child(2){
-    top:48%
- }
- .mob-nav-btn span:nth-child(1){
-    top:99%
- }
+  /* [수정 1] nth-child 순서 오류 수정 (1, 2, 3) */
+  .mob-nav-btn span:nth-child(1) {
+    top: 0;
+  }
+  .mob-nav-btn span:nth-child(2) {
+    top: 48%;
+  }
+  .mob-nav-btn span:nth-child(3) {
+    top: 100%; /* 99% or 100% */
+  }
 
- .nav-list{
+  .nav-list {
     position: fixed;
     right: -100%;
     top: 79px;
@@ -44,48 +45,147 @@
     gap: 10px;
     text-align: center;
     transition: right .3s;
-}
-.nav-list li +li{
+  }
+
+  .nav-list li+li {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-.nav-list li a{
+  }
+
+  .nav-list li a {
     padding-top: 10px;
-}
+  }
 
-body.mob-nav-open  .nav-list{
-    
+  body.mob-nav-open .nav-list {
     right: 0;
- }
-body.mob-nav-open .mob-nav-btn span:nth-child(1){
+  }
+
+  body.mob-nav-open .mob-nav-btn span:nth-child(1) {
     transform: rotate(45deg);
-    top:48%
+    top: 48%
+  }
 
-}
-body.mob-nav-open .mob-nav-btn span:nth-child(3){
+  body.mob-nav-open .mob-nav-btn span:nth-child(3) {
     transform: rotate(-45deg);
-    top:48%
+    top: 48%
+  }
 
-}
-body.mob-nav-open .mob-nav-btn span:nth-child(2){
+  body.mob-nav-open .mob-nav-btn span:nth-child(2) {
     transform: translateX(100%);
     opacity: 0;
+  }
+
+  .sec-2-lst {
+    justify-content: center;
+  }
+
+  .sec-3 {
+    background: url(../img/sec-3-bg.png) no-repeat center/cover;
+    flex-direction: column;
+  }
+
+  .sec-3 .img-wrap {
+    width: 100%;
+  }
+
+  .sec-3 .tit-wrap {
+    background-color: transparent;
+    width: 100%;
+  }
+
+  /* [수정 2] 숫자 가운데 정렬 (가장 확실한 방법) */
+  .sec-3-slider .swiper-slide {
+    position: relative;
+  }
+
+  .sec-3-slider .swiper-slide .num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* PC 버전에서 설정된 값이 있다면 충돌하지 않게 초기화 */
+    right: auto;
+    bottom: auto;
+  }
+
+  .sec-4-lst {
+    gap: 20px
+  }
+
+  .sec-4-lst li a {
+    width: 100%;
+  }
+
+  .sec-4-lst li a h4 {
+    font-size: 50px;
+  }
 }
-.sec2 .inner {
-    text-align: center;
-    display: flex;
+
+
+@media screen and (max-width: 1024px) {
+
+.sec-4-lst{
+    flex-wrap: wrap;
+    margin-top: 90px;
+}
+.sec-4-lst li{
+    width: 42%;
+}
+.sec-4-lst li:nth-child(even) a{
+    margin-top: -50px
+}
+.sec-5{
+    min-height: 100vh;
+}
+
+.sec-5-menu{
+    border-radius: 0;
+    overflow: hidden;
+    /* justify-content: space-between; */
+}
+.sec-5-menu li{
+    width: 48%;
+}
+.sec-5-menu li a{
+    min-width: 0;
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+}
+footer .inner{
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
 }
-.sec-2 .sec-2-lst {
-        justify-content: center;
+}
+
+@media screen and (max-width: 699px) {
+    .sec-1 .swiper-button-prev,
+    .sec-1 .swiper-button-next {
+        display: none;
     }
-.sec-3 .img-wrap{
-    display: none;
-}
-.sec-3 .tit-wrap {
-    background-color: transparent;
-    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/sec-2-bg.png) no-repeat center/cover;
-    width: 100%;
-    color: #fff;
-}
+
+    .sec-4 .tit-wrap a.btn {
+        position: static;
+        transform: translateY(0);
+        margin-top: 30px;
+    }
+
+    .sec-4-lst {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .sec-4-lst li {
+        width: 100%;
+        max-width: 100%; 
+    }
+
+    .sec-4-lst li:nth-child(even) a {
+        margin-top: 0;
+    }
 }
